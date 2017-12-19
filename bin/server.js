@@ -1,6 +1,7 @@
 const Koa = require('koa');
 const webpack = require('webpack');
 const koaWebpack = require('koa-webpack-middleware');
+const webpackHotMiddleware = require('webpack-dev-middleware');
 const path = require('path');
 const fs = require('fs');
 
@@ -13,9 +14,11 @@ const compiler = webpack(config);
 const webpackMiddleware = koaWebpack.devMiddleware(compiler, {
   publicPath: config.output.publicPath,
   stats: { colors: true },
+  hot: true,
 });
 
 app.use(webpackMiddleware);
+app.use(koaWebpack.hotMiddleware(compiler));
 app.use((ctx) => {
   ctx.set('Content-Type', 'text/html');
   ctx.body = fs.readFileSync(indexHtmlPath);

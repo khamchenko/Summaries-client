@@ -1,9 +1,14 @@
+const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: [
+    'babel-polyfill',
+    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
+    path.resolve(__dirname, '../src/index.js'),
+  ],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, '../dist'),
@@ -19,6 +24,8 @@ module.exports = {
       template: path.resolve(__dirname, '../bin/index.html'),
       inject: false,
     }),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
   ],
   module: {
     rules: [
@@ -28,7 +35,8 @@ module.exports = {
       },
       {
         test: /.js$/,
-        use: 'babel-loader',
+        exclude: /node_modules/,
+        use: ['babel-loader', 'eslint-loader'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif|woff|woff2|eot|ttf|otf)$/,

@@ -1,24 +1,17 @@
-import 'babel-polyfill';
-import './style.css';
-
-class Component {
-  async addElement(container) {
-    const element = await this.getEl();
-
-    element.innerHTML = ['Summaries', 'React', 'App'].join(' ');
-    element.classList.add('test');
-
-    container.appendChild(element);
-  }
-
-  getEl() {
-    return new Promise((res) => {
-      setTimeout(() => res(document.createElement('div')), 2000);
-    });
-  }
-}
+import React from 'react';
+import { render } from 'react-dom';
+import App from './App';
 
 const appEl = document.querySelector('#app');
-const component = new Component();
+const renderApp = Component => {
+  render(
+    <Component />,
+    appEl,
+  );
+};
 
-component.addElement(appEl);
+renderApp(App);
+
+if (module.hot) {
+  module.hot.accept('./App', () => { render(App); });
+}
