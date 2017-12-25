@@ -5,6 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
   entry: [
     'babel-polyfill',
+    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
     path.resolve(__dirname, '../src/index.js'),
   ],
   output: {
@@ -19,6 +20,8 @@ module.exports = {
       template: path.resolve(__dirname, '../bin/index.html'),
       inject: false,
     }),
+    new webpack.NamedModulesPlugin(),		
+    new webpack.HotModuleReplacementPlugin(),
   ],
   module: {
     rules: [
@@ -40,9 +43,10 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/,
         use: 'image-webpack-loader',
       },
-      {
-        test: /\.js$/,
-        use: 'babel-loader',
+      {		
+         test: /\.js$/,		
+         exclude: /node_modules/,		
+         use: ['babel-loader', 'eslint-loader'],		
       },
     ],
   },
