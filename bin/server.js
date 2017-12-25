@@ -1,6 +1,7 @@
 const Koa = require('koa');
 const webpack = require('webpack');
 const koaWebpackMiddleware = require('koa-webpack-middleware');
+const webpackHotMiddleware = require('webpack-dev-middleware');
 const path = require('path');
 const fs = require('fs');
 const config = require(path.resolve(__dirname, '../build/webpack.config'));
@@ -13,7 +14,10 @@ const compiler = webpack(config);
 app.use(koaWebpackMiddleware.devMiddleware(compiler, {
   publicPath: config.output.publicPath,
   stats: { colors: true },
+  hot: true,
 }));
+
+app.use(koaWebpack.hotMiddleware(compiler));
 
 app.use(async (ctx) => {
   ctx.set('Content-Type', 'text/html');
