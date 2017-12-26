@@ -17,7 +17,7 @@ app.use(koaWebpackMiddleware.devMiddleware(compiler, {
   hot: true,
 }));
 
-app.use(koaWebpack.hotMiddleware(compiler));
+app.use(koaWebpackMiddleware.hotMiddleware(compiler));
 
 app.use(async (ctx) => {
   ctx.set('Content-Type', 'text/html');
