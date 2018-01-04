@@ -15,9 +15,7 @@ renderApp(App);
 if (module.hot) {
   module.hot.accept('./App', () => {
     import('./App').then((module) => {
-      console.log(module);
-      
       renderApp(module.default);
-    })
+    });
   });
 }
