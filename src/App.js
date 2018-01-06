@@ -1,7 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class App extends Component {
+class App extends Component {
   render () {
-    return <p>Hello React</p>;
+    const { developers } = this.props;
+
+    return (
+      <p>
+        <ul>
+          {
+            developers.data.map(({ name }) => <li key={name}>{name}</li>)
+          }
+        </ul> 
+      </p>
+    );
   }
 }
+
+export default connect(({ developers }) => ({ developers }))(App);
