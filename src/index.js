@@ -5,9 +5,10 @@ import createStore from './store/createStore';
 import App from './App';
 
 const appEl = document.querySelector('#app');
+const store = createStore();
 const renderApp = Component => {
   render(
-    <Provider store={createStore()}>
+    <Provider store={store}>
       <Component />
     </Provider>,
     appEl,

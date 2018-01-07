@@ -7,9 +7,7 @@ export default (initialState = {}) =>  {
   if (module.hot) {
     module.hot.accept('../reducers', () => {
       import('../reducers').then(module => {
-        console.log(createStore(module.default).getState());
         store.replaceReducer(module.default);
-        console.log(store.getState());
       });
     });
   }
