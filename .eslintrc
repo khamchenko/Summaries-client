@@ -24,5 +24,7 @@
     "no-param-reassign": 0,
     "jsx-a11y/anchor-is-valid": 0,
     "react/prefer-stateless-function": 0,
+    "comma-dangle": 1,
+    "object-curly-spacing": 1
   }
 }
