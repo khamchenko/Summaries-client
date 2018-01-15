@@ -29,6 +29,5 @@ if (__DEV__ && module.hot) {
     import('./routes').then(({ default: nextRoutes }) => {
       renderApp(App, nextRoutes);
     });
-
   });
 }
