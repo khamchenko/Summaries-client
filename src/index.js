@@ -19,14 +19,16 @@ renderApp(App, routes);
 
 if (__DEV__ && module.hot) {
   module.hot.accept('./App', () => {
-    const NextApp = require('./App').default;
+    import('./App').then(({ default: NextApp }) => {
+      renderApp(NextApp, routes);
+    });
 
-    renderApp(NextApp, routes);
   });
 
   module.hot.accept('./routes', () => {
-    const nextRoutes = require('./routes').default;
+    import('./routes').then(({ default: nextRoutes }) => {
+      renderApp(App, nextRoutes);
+    });
 
-    renderApp(App, nextRoutes);
   });
 }
