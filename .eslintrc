@@ -2,13 +2,17 @@
   "extends": ["airbnb", "eslint:recommended"],
   "parser": "babel-eslint",
   "plugins": ["react", "jsx-a11y", "import"],
+  "globals": {
+    "__DEV__": true
+  },
   "env": {
     "browser": true,
-    "es6": true,
+    "es6": true
   },
   "rules": {
     "no-console": 1,
     "semi": 2,
+    "quotes": ["error", "single"],
     "no-unexpected-multiline": 2,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "jsx-a11y/no-static-element-interactions": 0,
@@ -25,6 +29,8 @@
     "jsx-a11y/anchor-is-valid": 0,
     "react/prefer-stateless-function": 0,
     "comma-dangle": 1,
-    "object-curly-spacing": 1
+    "object-curly-spacing": 1,
+    "no-undefined": 1,
+    "no-unused-vars": 1
   }
 }

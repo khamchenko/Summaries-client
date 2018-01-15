@@ -1,5 +1,5 @@
 const initState = {
-  data: [{ name: 'Developer 1'}, { name: 'Developer 2'}],
+  data: [{ name: 'Developer 1' }, { name: 'Developer 2' }],
   isLoading: false,
   receivedAt: null,
 };

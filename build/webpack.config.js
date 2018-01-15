@@ -23,8 +23,11 @@ module.exports = {
       template: path.resolve(__dirname, '../bin/index.html'),
       inject: false,
     }),
-    new webpack.NamedModulesPlugin(),		
+    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      __DEV__: JSON.stringify(!process.env.ENV),
+    }),
   ],
   module: {
     rules: [
@@ -39,17 +42,17 @@ module.exports = {
           {
             loader: 'url-loader',
             options: { limit: 40000 },
-          }
-        ]
+          },
+        ],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/,
         use: 'image-webpack-loader',
       },
-      {		
-         test: /\.js$/,		
-         exclude: /node_modules/,		
-         use: ['babel-loader', 'eslint-loader'],		
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['babel-loader', 'eslint-loader'],
       },
     ],
   },
