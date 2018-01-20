@@ -18,8 +18,8 @@ export default () =>  {
 
   if (__DEV__ && module.hot) {
     module.hot.accept('../redux/modules', () => {
-      import('../redux/modules').then(module => {
-        store.replaceReducer(module.default);
+      import('../redux/modules').then(({ default: nextRootReducer }) => {
+        store.replaceReducer(nextRootReducer);
       });
     });
   }
