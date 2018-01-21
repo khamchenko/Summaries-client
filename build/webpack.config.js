@@ -14,6 +14,9 @@ module.exports = {
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/',
   },
+  resolve: {
+    modules: [path.resolve(__dirname, '../src'), 'node_modules'],
+  },
   devtool: 'inline-source-map',
   plugins: [
     new CleanWebpackPlugin([path.resolve(__dirname, '../dist')], {

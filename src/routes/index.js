@@ -2,9 +2,9 @@ import RootLayout from '../layouts/RootLayout';
 import IndexRoutes from './IndexRoutes';
 import UserRoutes from './UserRoutes';
 
-export default () => [
+export default store => [
   {
     component: RootLayout,
-    routes: [IndexRoutes(), UserRoutes()],
+    routes: [IndexRoutes(), UserRoutes(store)],
   },
 ];
