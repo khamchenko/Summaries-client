@@ -1,0 +1,25 @@
+.summaries__results .summary {
+  width: 80%;
+  border: 2px solid #3059DE;
+  padding: 25px 20px;
+}
+
+.summary {
+  margin: 0 auto 40px auto;
+}
+
+.summary__header {
+  margin-bottom: 20px;
+}
+
+.summary__title {
+  margin: 0 !important;
+}
+
+.summary__description {
+  margin-bottom: 40px;
+}
+
+.summary__more-button {
+  float: right;
+}

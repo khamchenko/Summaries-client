@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Tabs, TabsItem } from 'rambler-ui/Tabs';
 
+import './HeaderNavigation.css';
+
 const HeaderNavigation = () => (
-  <nav>
+  <nav className="header_nav">
     <Tabs size="medium">
       <TabsItem>
         <Link to="/">Home</Link>

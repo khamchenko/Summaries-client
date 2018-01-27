@@ -1,0 +1,12 @@
+.header_nav {
+  margin-top: 20px;
+}
+
+.header_nav a {
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.header_nav a:visited {
+  color: inherit;
+}

@@ -1096,6 +1096,10 @@ boom@2.x.x:
   dependencies:
     hoek "2.x.x"
 
+bootstrap-grid@^2.0.1:
+  version "2.0.1"
+  resolved "http://37.187.163.104:4873/bootstrap-grid/-/bootstrap-grid-2.0.1/5b40a7c6110bb63103fd95921d6bf5db6550738c.tgz#5b40a7c6110bb63103fd95921d6bf5db6550738c"
+
 brace-expansion@^1.1.7:
   version "1.1.8"
   resolved "http://37.187.163.104:4873/brace-expansion/-/brace-expansion-1.1.8/c07b211c7c952ec1f8efd51a77ef0d1d3990a292.tgz#c07b211c7c952ec1f8efd51a77ef0d1d3990a292"
