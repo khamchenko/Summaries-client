@@ -817,6 +817,12 @@ babel-plugin-transform-regenerator@^6.22.0, babel-plugin-transform-regenerator@^
   dependencies:
     regenerator-transform "^0.10.0"
 
+babel-plugin-transform-runtime@^6.23.0:
+  version "6.23.0"
+  resolved "http://37.187.163.104:4873/babel-plugin-transform-runtime/-/babel-plugin-transform-runtime-6.23.0/88490d446502ea9b8e7efb0fe09ec4d99479b1ee.tgz#88490d446502ea9b8e7efb0fe09ec4d99479b1ee"
+  dependencies:
+    babel-runtime "^6.22.0"
+
 babel-plugin-transform-strict-mode@^6.24.1:
   version "6.24.1"
   resolved "http://37.187.163.104:4873/babel-plugin-transform-strict-mode/-/babel-plugin-transform-strict-mode-6.24.1/d5faf7aa578a65bbe591cf5edae04a0c67020758.tgz#d5faf7aa578a65bbe591cf5edae04a0c67020758"
@@ -944,7 +950,7 @@ babel-register@^6.26.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.15"
 
-babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.23.0, babel-runtime@^6.26.0:
+babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.23.0, babel-runtime@^6.25.0, babel-runtime@^6.26.0:
   version "6.26.0"
   resolved "http://37.187.163.104:4873/babel-runtime/-/babel-runtime-6.26.0/965c7058668e82b55d7bfe04ff2337bc8b5647fe.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   dependencies:
@@ -3657,6 +3663,10 @@ keygrip@~1.0.2:
   version "1.0.2"
   resolved "http://37.187.163.104:4873/keygrip/-/keygrip-1.0.2/ad3297c557069dea8bcfe7a4fa491b75c5ddeb91.tgz#ad3297c557069dea8bcfe7a4fa491b75c5ddeb91"
 
+keymirror@^0.1.1:
+  version "0.1.1"
+  resolved "http://37.187.163.104:4873/keymirror/-/keymirror-0.1.1/918889ea13f8d0a42e7c557250eee713adc95c35.tgz#918889ea13f8d0a42e7c557250eee713adc95c35"
+
 kind-of@^3.0.2:
   version "3.2.2"
   resolved "http://37.187.163.104:4873/kind-of/-/kind-of-3.2.2/31ea21a734bab9bbb0f32466d893aea51e4a3c64.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
@@ -3873,6 +3883,10 @@ lodash.isarray@^3.0.0:
 lodash.isequal@^4.0.0:
   version "4.5.0"
   resolved "http://37.187.163.104:4873/lodash.isequal/-/lodash.isequal-4.5.0/415c4478f2bcc30120c22ce10ed3226f7d3e18e0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
+
+lodash.isplainobject@^4.0.6:
+  version "4.0.6"
+  resolved "http://37.187.163.104:4873/lodash.isplainobject/-/lodash.isplainobject-4.0.6/7c526a52d89b45c45cc690b88163be0497f550cb.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
 
 lodash.keys@^3.0.0:
   version "3.1.2"
@@ -5112,6 +5126,14 @@ reduce-function-call@^1.0.1:
   resolved "http://37.187.163.104:4873/reduce-function-call/-/reduce-function-call-1.0.2/5a200bf92e0e37751752fe45b0ab330fd4b6be99.tgz#5a200bf92e0e37751752fe45b0ab330fd4b6be99"
   dependencies:
     balanced-match "^0.4.2"
+
+redux-api-middleware@^2.2.0:
+  version "2.2.0"
+  resolved "http://37.187.163.104:4873/redux-api-middleware/-/redux-api-middleware-2.2.0/3aa6f29dee0842aecab773867bafff98af1d45ee.tgz#3aa6f29dee0842aecab773867bafff98af1d45ee"
+  dependencies:
+    babel-plugin-transform-runtime "^6.23.0"
+    babel-runtime "^6.25.0"
+    lodash.isplainobject "^4.0.6"
 
 redux@^3.7.2:
   version "3.7.2"

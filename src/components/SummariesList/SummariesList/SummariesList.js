@@ -3,9 +3,9 @@ import React from 'react';
 import './SummariesList.css';
 import SummaryItem from '../SummaryItem';
 
-const SummariesList = () => (
+const SummariesList = ({ summaries }) => (
   <article className="summaries__list">
-    {Array(1, 2, 3, 4, 5).map(() => <SummaryItem key={Math.random()} />)}
+    {summaries.map((summary) => <SummaryItem summary={summary} key={`summary_${summary._id}`} />)}
   </article>
 );
 

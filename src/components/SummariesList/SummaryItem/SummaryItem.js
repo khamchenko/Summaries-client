@@ -6,7 +6,7 @@ import ChevronRightIcon from 'rambler-ui/icons/forms/ChevronRightIcon';
 
 import './SummaryItem.css';
 
-const SummaryItem = () => (
+const SummaryItem = ({ summary: { title, description, user: { firstName, lastName } } }) => (
   <div className="summaries__summary summary">
     <div className="row">
       <div className="summary__img col-sm-2">
@@ -18,24 +18,11 @@ const SummaryItem = () => (
       </div>
       <div className="summary__info col-sm-10">
         <div className="summary__header">
-          <H3 className="summary__title">Andry Huilo</H3>
-          <Source className="summary__position">Senior React Developer</Source>
+          <H3 className="summary__title">{`${firstName} ${lastName}`}</H3>
+          <Source className="summary__position">{title}</Source>
         </div>
         <div className="summary__description">
-          <Description>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero
-              officiis illum minima recusandae. Commodi magni alias placeat qui,
-              consectetur veniam quisquam odio tempora corporis iure ab
-              inventore velit ratione officiis!
-            </p>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero
-              officiis illum minima recusandae. Commodi magni alias placeat qui,
-              consectetur veniam quisquam odio tempora corporis iure ab
-              inventore velit ratione officiis!
-            </p>
-          </Description>
+          <Description>{description}</Description>
         </div>
         <Button
           icon={<ChevronRightIcon />}

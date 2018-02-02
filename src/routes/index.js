@@ -5,6 +5,6 @@ import UserRoutes from './UserRoutes';
 export default store => [
   {
     component: RootLayout,
-    routes: [IndexRoutes(), UserRoutes(store)],
+    routes: [IndexRoutes(store), UserRoutes(store)],
   },
 ];

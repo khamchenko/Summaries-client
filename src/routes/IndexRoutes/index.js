@@ -1,7 +1,18 @@
-import IndexView from './components/IndexView';
+import asyncComponent from 'components/asyncComponent';
+import { injectAsyncReducer } from 'store/createStore';
 
-export default () => ({
+export default (store) => ({
   path: '/',
   exact: true,
-  component: IndexView,
+  component: asyncComponent(() => {
+    return import('./modules')
+      .then(reducer => {
+        injectAsyncReducer(store, 'index', reducer.default);
+      })
+      .then(() => {
+        return import('./containers/IndexViewContainer').then(module => {
+          return module.default;
+        });
+    });
+  }),
 });

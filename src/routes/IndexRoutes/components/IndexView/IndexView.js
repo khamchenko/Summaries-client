@@ -1,11 +1,12 @@
 import React from 'react';
 import { H2 } from 'rambler-ui/Typography';
 import { ComplexSearch } from 'rambler-ui/ComplexSearch';
+import Loader from 'rambler-ui/Loader';
 import SummariesList from 'components/SummariesList';
 
 import './IndexView.css';
 
-const IndexView = () => (
+const IndexView = ({ summaries, loading }) => (
   <section>
     <div className="container">
       <H2 className="content__header">Developers</H2>
@@ -18,7 +19,9 @@ const IndexView = () => (
           />
         </div>
         <div className="summaries__results">
-          <SummariesList />
+          <Loader loading={loading}>
+            <SummariesList summaries={summaries} />
+          </Loader>
         </div>
       </div>
     </div>
