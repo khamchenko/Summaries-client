@@ -1,4 +1,4 @@
-import { RSAA, isValidRSAA } from 'redux-api-middleware';
+import { RSAA } from 'redux-api-middleware';
 import createReducer from 'helpers/createReducer';
 import createRequestAction from 'helpers/createRequestAction';
 
