@@ -1,3 +1,3 @@
-import IndexView from './IndexView';
+import View from './View';
 
-export default IndexView;
+export default View;
