@@ -10,16 +10,25 @@ export default class IndexView extends Component {
     this.props.fetchSummaries();
   }
 
-  render() {
-    const { summaries: { isLoading, data } } = this.props;
+  renderSummaries() {
+    const { summaries: { isLoading, data, receivedAt } } = this.props;
 
+    
+    if (receivedAt && !isLoading && !data.length) {
+      return <H2 style={{ textAlign: 'center' }}>No Summaries</H2>;
+    }
+
+    return <SummariesList loading={isLoading} summaries={data} />;
+  }
+
+  render() {
     return (
       <section>
         <div className="container">
           <H2 className="content__header">Developers</H2>
           <div className="row">
             <Search />
-            <SummariesList loading={isLoading} summaries={data} />
+            {this.renderSummaries()}
           </div>
         </div>
       </section>

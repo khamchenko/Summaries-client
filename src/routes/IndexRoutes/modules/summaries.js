@@ -1,6 +1,7 @@
 import { RSAA } from 'redux-api-middleware';
 import createReducer from 'helpers/createReducer';
 import createRequestAction from 'helpers/createRequestAction';
+import timestamp from 'helpers/timestamp';
 
 const FETCH_SUMMARIES = createRequestAction('index/summaries/fetch-summaries');
 
@@ -38,11 +39,13 @@ const actionHandlers = {
     ...state,
     data,
     meta,
+    receivedAt: timestamp(),
     isLoading: false,
   }),
   [FETCH_SUMMARIES.FAILURE]: (state, action) => ({
     ...state,
     errors: action.payload,
+    receivedAt: timestamp(),
     isLoading: false,
   }),
 };
