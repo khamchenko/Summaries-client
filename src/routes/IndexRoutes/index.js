@@ -6,12 +6,13 @@ export default (store) => ({
   exact: true,
   component: asyncComponent(() => {
     return import('./modules')
-      .then(reducer => {
-        injectAsyncReducer(store, 'index', reducer.default);
+      .then(({ default: reducer }) => {
+        injectAsyncReducer(store, 'index', reducer);
       })
       .then(() => {
-        return import('./containers/IndexViewContainer').then(module => {
-          return module.default;
+        return import('./containers/IndexViewContainer')
+          .then(({ default: component }) => {
+            return component;
         });
     });
   }),
