@@ -4,7 +4,7 @@ import { H3, Description, Source } from 'rambler-ui/Typography';
 import Button from 'rambler-ui/Button';
 import ChevronRightIcon from 'rambler-ui/icons/forms/ChevronRightIcon';
 
-import './SummaryItem.css';
+import './SummariesItem.css';
 
 const SummaryItem = ({ summary: { title, description, user: { firstName, lastName } } }) => (
   <div className="summaries__summary summary">

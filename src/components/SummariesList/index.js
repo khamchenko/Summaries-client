@@ -1,8 +1,8 @@
 import SummariesList from './SummariesList';
-import SummaryItem from './SummaryItem';
+import SummariesItem from './SummariesItem';
 
 export {
-  SummaryItem,
+  SummariesItem,
 };
 
 export default SummariesList;
