@@ -18,7 +18,11 @@ class View extends Component {
     }
 
     if (error && error.name === 'RequestError') {
-      return <H2 style={{ textAlign: 'center' }}>Something went wrong. Please try later.</H2>;
+      return (
+        <H2 style={{ textAlign: 'center' }}>
+         Something went wrong. Please try later.
+        </H2>
+      );
     }
 
     return <SummariesList loading={isLoading} summaries={data} />;
