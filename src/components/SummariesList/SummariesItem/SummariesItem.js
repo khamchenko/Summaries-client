@@ -6,7 +6,7 @@ import ChevronRightIcon from 'rambler-ui/icons/forms/ChevronRightIcon';
 
 import './SummariesItem.css';
 
-const SummaryItem = ({ summary: { title, description, user: { firstName, lastName } } }) => (
+const SummaryItem = ({ summary: { title, description, user: { firstName, lastName } } , sdf }) => (
   <div className="summaries__summary summary">
     <div className="row">
       <div className="summary__img col-sm-2">

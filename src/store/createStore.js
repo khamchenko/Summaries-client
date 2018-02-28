@@ -8,11 +8,9 @@ if (__DEV__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
   composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 }
 
-const enhancer = composeEnhancers(
-  applyMiddleware(...middlewares),
-);
+const enhancer = composeEnhancers(applyMiddleware(...middlewares));
 
-const createAppStore = (initialState = {}) =>  {
+const createAppStore = (initialState = {}) => {
   const store = createStore(createReducer(), initialState, enhancer);
 
   if (__DEV__ && module.hot) {
@@ -44,8 +42,6 @@ const injectAsyncReducer = (store, reducerName, asyncReducer) => {
   store.replaceReducer(reducer);
 };
 
-export {
-  injectAsyncReducer,
-};
+export { injectAsyncReducer };
 
 export default createAppStore;
