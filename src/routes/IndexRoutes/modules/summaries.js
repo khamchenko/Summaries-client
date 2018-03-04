@@ -1,24 +1,36 @@
 import { RSAA } from 'redux-api-middleware';
+import queryString from 'query-string';
 
 import createReducer from 'helpers/createReducer';
 import createRequestType from 'helpers/createRequestType';
 import timestamp from 'helpers/timestamp';
 
-const KEY = 'index/summaries';
-const FETCH_SUMMARIES = createRequestType(`${KEY}/fetch-summaries`);
+const KEY = 'index/summaries/';
+const FETCH_SUMMARIES = createRequestType(`${KEY}fetch-summaries`);
 
 const initState = {
   data: [],
-  meta: {},
+  meta: {
+    count: 0,
+    pages: 0,
+    filter: {
+      title: '',
+      size: 5,
+      tags: [],
+      page: 1,
+    },
+  },
   receivedAt: null,
   isLoading: false,
   error: null,
 };
 
-function fetchSummaries() {
+function fetchSummaries(params = {}) {
+   const query = queryString.stringify(params);
+
   return {
     [RSAA]: {
-      endpoint: 'http://localhost:4000/api/summaries',
+      endpoint: `http://localhost:4000/api/summaries?${query}`,
       method: 'GET',
       types: FETCH_SUMMARIES.getValues(),
     },

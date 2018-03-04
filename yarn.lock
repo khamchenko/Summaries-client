@@ -1775,6 +1775,10 @@ decamelize@^1.0.0, decamelize@^1.1.1, decamelize@^1.1.2:
   version "1.2.0"
   resolved "http://37.187.163.104:4873/decamelize/-/decamelize-1.2.0/f6534d15148269b20352e7bee26f501f9a191290.tgz#f6534d15148269b20352e7bee26f501f9a191290"
 
+decode-uri-component@^0.2.0:
+  version "0.2.0"
+  resolved "http://37.187.163.104:4873/decode-uri-component/-/decode-uri-component-0.2.0/eb3913333458775cb84cd1a1fae062106bb87545.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
+
 decompress-tar@^3.0.0:
   version "3.1.0"
   resolved "http://37.187.163.104:4873/decompress-tar/-/decompress-tar-3.1.0/217c789f9b94450efaadc5c5e537978fc333c466.tgz#217c789f9b94450efaadc5c5e537978fc333c466"
@@ -3958,6 +3962,10 @@ lodash@^4.13.1, lodash@^4.14.0, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.2.0, l
   version "4.17.4"
   resolved "http://37.187.163.104:4873/lodash/-/lodash-4.17.4/78203a4d1c328ae1d86dca6460e369b57f4055ae.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
+lodash@^4.17.5:
+  version "4.17.5"
+  resolved "http://37.187.163.104:4873/lodash/-/lodash-4.17.5/99a92d65c0272debe8c96b6057bc8fbfa3bed511.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
+
 logalot@^2.0.0:
   version "2.1.0"
   resolved "http://37.187.163.104:4873/logalot/-/logalot-2.1.0/5f8e8c90d304edf12530951a5554abb8c5e3f552.tgz#5f8e8c90d304edf12530951a5554abb8c5e3f552"
@@ -4930,6 +4938,14 @@ query-string@^4.1.0:
     object-assign "^4.1.0"
     strict-uri-encode "^1.0.0"
 
+query-string@^5.1.0:
+  version "5.1.0"
+  resolved "http://37.187.163.104:4873/query-string/-/query-string-5.1.0/9583b15fd1307f899e973ed418886426a9976469.tgz#9583b15fd1307f899e973ed418886426a9976469"
+  dependencies:
+    decode-uri-component "^0.2.0"
+    object-assign "^4.1.0"
+    strict-uri-encode "^1.0.0"
+
 querystring-es3@^0.2.0:
   version "0.2.1"
   resolved "http://37.187.163.104:4873/querystring-es3/-/querystring-es3-0.2.1/9ec61f79049875707d69414596fd907a4d711e73.tgz#9ec61f79049875707d69414596fd907a4d711e73"
@@ -5163,6 +5179,10 @@ redux-api-middleware@^2.2.0:
     babel-plugin-transform-runtime "^6.23.0"
     babel-runtime "^6.25.0"
     lodash.isplainobject "^4.0.6"
+
+redux-thunk@^2.2.0:
+  version "2.2.0"
+  resolved "http://37.187.163.104:4873/redux-thunk/-/redux-thunk-2.2.0/e615a16e16b47a19a515766133d1e3e99b7852e5.tgz#e615a16e16b47a19a515766133d1e3e99b7852e5"
 
 redux@^3.7.2:
   version "3.7.2"
