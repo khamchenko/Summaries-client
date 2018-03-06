@@ -6,9 +6,15 @@ import { H2 } from 'rambler-ui/Typography';
 import { PAGINATION_PARAMS } from 'constants/index';
 
 import View from './View.js';
+import Search from '../Search';
 import { SUMMARIES_SEARCH_PARAMS } from '../../constants';
 
 class ViewContainer extends Component {
+  state = {
+    summary: {
+      title: '',
+    },
+  }
   componentDidMount() {
     this.fetchSummaries(this.searchParams);
   }
@@ -58,6 +64,14 @@ class ViewContainer extends Component {
         });
       });
   }
+  
+  handleSearchChange = (value ) => {
+    this.setState({ summary: { title: value } });
+  }
+
+  handleSearchSubmit = () => {
+    this.props.fetchSummaries({ title: this.state.summary.title });
+  }
 
   render() {
     const {
@@ -69,25 +83,21 @@ class ViewContainer extends Component {
         meta,
       },
     } = this.props;
-
-    if (error && error.name === 'RequestError') {
-      return (
-        <H2 style={{ textAlign: 'center' }}>
-         Something went wrong. Please try later.
-        </H2>
-      );
-    }
-
-    if (receivedAt && !isLoading && !data.length) {
-      return <H2 style={{ textAlign: 'center' }}>No Summaries</H2>;
-    } 
+    const { summary: { title } } = this.state;
 
     return (
       <div ref={(ref => this._view = ref)}>
+        <Search
+          onSearch={this.handleSearchChange}
+          onSubmit={this.handleSearchSubmit}
+          title={title}
+        />
         <View
           isLoading={isLoading}
           data={data}
           meta={meta}
+          error={error}
+          isEmpty={receivedAt && !isLoading && !data.length}
           onPageChange={this.handlePageChange}
         />
       </div>

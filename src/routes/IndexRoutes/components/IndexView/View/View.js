@@ -4,7 +4,6 @@ import Pagination from 'rambler-ui/Pagination';
 
 import './View.css';
 import SummariesList from '../SummariesList';
-import Search from '../Search';
 
 const View = ({
   isLoading,
@@ -14,12 +13,21 @@ const View = ({
       pages,
     },
     onPageChange,
+    error,
+    isEmpty,
   }) => (
     <section>
       <div className="container">
         <H2 className="content__header">Developers</H2>
         <div className="row">
-          <Search />
+          {!error && isEmpty && (
+            <H2 style={{ textAlign: 'center' }}>No Summaries</H2>
+          )}
+          {error && error.name === 'RequestError' && (
+            <H2 style={{ textAlign: 'center' }}>
+              Something went wrong. Please try later.
+            </H2>
+          )}
           <SummariesList
             loading={isLoading}
             summaries={data}
@@ -33,7 +41,7 @@ const View = ({
               <span>
                 {pageNumber}
               </span>
-            )}
+                )}
           />
         </div>
       </div>

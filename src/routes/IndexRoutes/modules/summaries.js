@@ -38,17 +38,26 @@ function fetchSummaries(params = {}) {
 }
 
 const actionHandlers = {
-  [FETCH_SUMMARIES.REQUEST]: (state, action) => ({
-    ...state,
-    isLoading: !action.payload,
-    error: action.payload,
-  }),
+  [FETCH_SUMMARIES.REQUEST]: (state, { payload }) => {
+    if (payload) {
+      return {
+        ...initState,
+        error: payload,
+      };
+    }
+
+    return {
+      ...state,
+      isLoading: true,
+    };
+  },
   [FETCH_SUMMARIES.SUCCESS]: (state, { payload: { data, ...meta } }) => ({
     ...state,
     data,
     meta,
     isLoading: false,
     receivedAt: timestamp(),
+    error: null,
   }),
   [FETCH_SUMMARIES.FAILURE]: (state, action) => ({
     ...state,
