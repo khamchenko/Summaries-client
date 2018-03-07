@@ -12,7 +12,7 @@ class Search extends Component {
     const { searchParams } = this.props;
     const { search: { title } } = this.state;
 
-    this.props.fetchSummaries({ ...searchParams, title });
+    this.props.onSubmit({ ...searchParams, title });
   }
 
   onSearch = (title) => {

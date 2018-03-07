@@ -78,7 +78,7 @@ class ViewContainer extends Component {
         <Search
           onSearch={this.handleSearchChange}
           searchParams={this.searchParams}
-          fetchSummaries={this.fetchSummaries}
+          onSubmit={this.fetchSummaries}
           defaultTitle={meta.filter.title}
         />
         <View
