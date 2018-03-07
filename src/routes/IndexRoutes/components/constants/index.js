@@ -1,1 +1,0 @@
-export const SUMMARIES_SEARCH_PARAMS = ['title', 'tags'];

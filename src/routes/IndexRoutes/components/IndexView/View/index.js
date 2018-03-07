@@ -7,7 +7,7 @@ import { PAGINATION_PARAMS } from 'constants/index';
 
 import View from './View.js';
 import Search from '../Search';
-import { SUMMARIES_SEARCH_PARAMS } from '../../constants';
+import { SUMMARIES_SEARCH_PARAMS } from '../../../constants';
 
 class ViewContainer extends Component {
   componentDidMount() {
