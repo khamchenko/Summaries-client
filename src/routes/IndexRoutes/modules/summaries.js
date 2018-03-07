@@ -41,8 +41,10 @@ const actionHandlers = {
   [FETCH_SUMMARIES.REQUEST]: (state, { payload }) => {
     if (payload) {
       return {
-        ...initState,
+        ...state,
+        data: [],
         error: payload,
+        isLoading: false,
       };
     }
 

@@ -10,11 +10,6 @@ import Search from '../Search';
 import { SUMMARIES_SEARCH_PARAMS } from '../../constants';
 
 class ViewContainer extends Component {
-  state = {
-    summary: {
-      title: '',
-    },
-  }
   componentDidMount() {
     this.fetchSummaries(this.searchParams);
   }
@@ -34,13 +29,20 @@ class ViewContainer extends Component {
     );
     const params = { page, size, title, tags };
 
-   return pickBy({
-      ...params,
-      ...searchParams,
-    }, value => value);
+    return pickBy({
+        ...params,
+        ...searchParams,
+      }, value => value);
   }
 
   fetchSummaries = (params) => {
+    const search = queryString.stringify(params);
+
+    this.props.history.push({
+      search,
+      pathname: '/',
+    });
+
     return this.props.fetchSummaries(params);
   }
 
@@ -49,12 +51,7 @@ class ViewContainer extends Component {
       ...this.searchParams,
       page,
     };
-    const search = queryString.stringify(searchParams);
 
-    this.props.history.push({
-      search,
-      pathname: '/',
-    });
     this.fetchSummaries(searchParams)
       .then(() => {
         this._view.scrollIntoView({
@@ -65,14 +62,6 @@ class ViewContainer extends Component {
       });
   }
   
-  handleSearchChange = (value ) => {
-    this.setState({ summary: { title: value } });
-  }
-
-  handleSearchSubmit = () => {
-    this.props.fetchSummaries({ title: this.state.summary.title });
-  }
-
   render() {
     const {
       summaries: {
@@ -83,14 +72,14 @@ class ViewContainer extends Component {
         meta,
       },
     } = this.props;
-    const { summary: { title } } = this.state;
 
     return (
       <div ref={(ref => this._view = ref)}>
         <Search
           onSearch={this.handleSearchChange}
-          onSubmit={this.handleSearchSubmit}
-          title={title}
+          searchParams={this.searchParams}
+          fetchSummaries={this.fetchSummaries}
+          defaultTitle={meta.filter.title}
         />
         <View
           isLoading={isLoading}

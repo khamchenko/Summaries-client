@@ -1,7 +1,8 @@
 import React from 'react';
-import { H2 } from 'rambler-ui/Typography';
 import Pagination from 'rambler-ui/Pagination';
+import { H2 } from 'rambler-ui/Typography';
 
+import Error from 'components/Error';
 import './View.css';
 import SummariesList from '../SummariesList';
 
@@ -23,11 +24,7 @@ const View = ({
           {!error && isEmpty && (
             <H2 style={{ textAlign: 'center' }}>No Summaries</H2>
           )}
-          {error && error.name === 'RequestError' && (
-            <H2 style={{ textAlign: 'center' }}>
-              Something went wrong. Please try later.
-            </H2>
-          )}
+          { error && <Error error={error} />}
           <SummariesList
             loading={isLoading}
             summaries={data}
@@ -41,7 +38,7 @@ const View = ({
               <span>
                 {pageNumber}
               </span>
-                )}
+            )}
           />
         </div>
       </div>
